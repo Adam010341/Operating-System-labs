@@ -11,6 +11,7 @@
 #include <sys/shm.h>
 #include <semaphore.h>
 #include <time.h>
+#include <sys/sem.h>
 
 #define MSG_PASSING 1
 #define SHARED_MEM 2
@@ -18,7 +19,7 @@
 #define MAX_MSG_SIZE 1024
 
 typedef struct {
-    int flag;      // 1 for message passing, 2 for shared memory
+    int flag; // 1 for message passing, 2 for shared memory
     union{
         int msqid; //for system V api. You can replace it with structure for POSIX api
         char* shm_addr;
